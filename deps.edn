@@ -23,6 +23,7 @@
            camel-snake-kebab              {:mvn/version "0.4.0"}
            com.taoensso/truss             {:mvn/version "1.6.0-RC1"}
            com.taoensso/encore            {:mvn/version "2.117.0"}
+           commons-codec/commons-codec    {:mvn/version "1.13"}
 
            ;; data/json
            metosin/jsonista               {:mvn/version "0.2.5"}
@@ -32,12 +33,10 @@
 
  :aliases {:test {:extra-paths ["src/test"]
                   :main-opts   ["-m" "kaocha.runner"]
-                  :extra-deps  {lambdaisland/kaocha {:mvn/version "0.0-529"}}}
+                  :extra-deps  {lambdaisland/kaocha {:mvn/version "0.0-554"}}}
 
            :dev  {:extra-paths ["src/test"]
                   :jvm-opts    ["-XX:-OmitStackTraceInFastThrow"]
-                  :extra-deps  {reloaded.repl               {:mvn/version "0.2.4"}
-                                expound                     {:mvn/version "0.7.2"}
-                                fulcrologic/fulcro-spec     {:mvn/version "3.1.4"}
+                  :extra-deps  {lambdaisland/kaocha         {:mvn/version "0.0-554"}
                                 org.clojure/tools.namespace {:mvn/version "0.3.1"}}}}}
 
