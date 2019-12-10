@@ -1,7 +1,7 @@
 (ns calyx.config
   (:require [cprop.core]
             [cprop.source]
-            [taoensso.timbre :as log]))
+            [clojure.tools.logging :as log]))
 
 (defn load-config
   ([] (load-config nil))

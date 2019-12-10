@@ -1,6 +1,6 @@
 (ns calyx.metrics
   (:require [clojure.string :as str]
-            [taoensso.timbre :as log]
+            [clojure.tools.logging :as log]
             [com.stuartsierra.component :as component]
             [metrics.core :as mc]
             [metrics.timers :as timers]))
