@@ -1,10 +1,23 @@
 (ns calyx.util
+  (:require [taoensso.encore :refer [defalias]]
+            [camel-snake-kebab.core :as case]
+            [camel-snake-kebab.extras :refer [transform-keys]])
   (:import [java.security MessageDigest]
            [java.util UUID Base64]
            [java.time Instant]
            [org.apache.commons.codec.binary Hex]))
 
 ;; core ========================================
+
+(defalias ->kebab-case case/->kebab-case)
+(defalias ->snake_case case/->snake_case)
+(defalias ->snake_case_string case/->snake_case_string)
+(defalias ->snake_case_keyword case/->snake_case_keyword)
+
+(defn ->kebab-case-keyword [m]
+  (if (map? m)
+    (transform-keys case/->kebab-case-keyword m)
+    (case/->kebab-case-keyword m)))
 
 ;; time ========================================
 

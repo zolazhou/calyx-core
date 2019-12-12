@@ -1,13 +1,13 @@
 (ns calyx.json
-  (:require [camel-snake-kebab.core :refer [->kebab-case-keyword ->snake_case_string]]
-            [jsonista.core :as json]))
+  (:require [jsonista.core :as json]
+            [calyx.util :as util]))
 
 (def object-mapper json/object-mapper)
 
 (def default-object-mapper
   (object-mapper
-    {:decode-key-fn ->kebab-case-keyword
-     :encode-key-fn ->snake_case_string}))
+    {:decode-key-fn util/->kebab-case-keyword
+     :encode-key-fn util/->snake_case_string}))
 
 (def empty-mapper json/+default-mapper+)
 
