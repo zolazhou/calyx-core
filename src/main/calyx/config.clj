@@ -1,25 +1,32 @@
 (ns calyx.config
-  (:require [clojure.tools.logging :as log]
-            [cprop.core]
+  (:require [cprop.core]
             [cprop.source]
             [taoensso.truss :refer [have?]]))
 
-(defn load-config
-  ([] (load-config nil))
-  ([file]
-   {:pre [(have? [:or nil? string?] file)]}
-   (let [props (cprop.source/from-system-props)
-         env   (cprop.source/from-env)
-         file  (or file (:calyx-config props) (:calyx-config env))]
-     (log/info "Load config from file:" file)
-     (if (some? file)
-       (cprop.core/load-config :file file :merge [props env])
-       (cprop.core/load-config :resource "config.edn" :merge [props env])))))
+(def from-env cprop.source/from-env)
+(def from-system-props cprop.source/from-system-props)
 
-(defn env-config-file
-  "Get config file path from system environments"
-  [key]
-  {:pre [(have? [:or keyword? string?] key)]}
-  (get (cprop.source/from-env)
-       (if (string? key) (keyword key) key)))
+(defn load-config
+  " Load configuration.
+
+  Support following options:
+
+  | key          | description |
+  | -------------|-------------|
+  | `:file`      | configuration file path.
+  | `:resource`  | resource filename, default: config.edn (when `:file` is not specified).
+  | `:env?`      | merge system environment variables.
+  | `:props?`    | merge system properties."
+  [{:keys [file resource env? props?]}]
+  {:pre [(have? [:or nil? string?] file resource)
+         (have? [:or nil? boolean?] env? props?)]}
+  (let [res  (if (and (nil? file) (nil? resource)) "config.edn" resource)
+        m    (cond-> []
+               props? (conj (from-system-props))
+               env? (conj (from-env)))
+        args (cond-> []
+               (some? file) (conj :file file)
+               (some? res) (conj :resource res)
+               true (conj :merge m))]
+    (apply cprop.core/load-config args)))
 
