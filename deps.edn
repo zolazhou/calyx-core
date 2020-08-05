@@ -1,35 +1,34 @@
 {:paths   ["src/main"]
 
- :deps    {org.clojure/clojure            {:mvn/version "1.10.1"}
-           org.clojure/tools.cli          {:mvn/version "0.4.2"}
+ :deps    {org.clojure/clojure                 {:mvn/version "1.10.1"}
+           org.clojure/tools.cli               {:mvn/version "1.0.194"}
 
            ;; logging
-           org.clojure/tools.logging      {:mvn/version "0.5.0"}
-           org.slf4j/jcl-over-slf4j       {:mvn/version "1.7.28"}
-           org.slf4j/jul-to-slf4j         {:mvn/version "1.7.28"}
-           org.slf4j/log4j-over-slf4j     {:mvn/version "1.7.28"}
-           ch.qos.logback/logback-classic {:mvn/version "1.2.3"
-                                           :exclusions  [org.slf4j/slf4j-api]}
+           org.clojure/tools.logging           {:mvn/version "1.1.0"}
+           org.slf4j/jcl-over-slf4j            {:mvn/version "1.7.30"}
+           org.slf4j/jul-to-slf4j              {:mvn/version "1.7.30"}
+           org.slf4j/log4j-over-slf4j          {:mvn/version "1.7.30"}
+           ch.qos.logback/logback-classic      {:mvn/version "1.2.3" :exclusions [org.slf4j/slf4j-api]}
 
            ;; spec
-           com.fulcrologic/guardrails     {:mvn/version "0.0.9"}
+           com.fulcrologic/guardrails          {:mvn/version "0.0.12"}
 
            ;; system
-           com.stuartsierra/component     {:mvn/version "0.4.0"}
-           org.danielsz/system            {:mvn/version "0.4.4-SNAPSHOT"}
-           cprop                          {:mvn/version "0.1.15-SNAPSHOT"}
+           com.stuartsierra/component          {:mvn/version "1.0.0"}
+           org.danielsz/system                 {:mvn/version "0.4.5"}
+           cprop/cprop                         {:mvn/version "0.1.17"}
 
            ;; util
-           camel-snake-kebab              {:mvn/version "0.4.0"}
-           com.taoensso/truss             {:mvn/version "1.6.0-RC1"}
-           com.taoensso/encore            {:mvn/version "2.117.0"}
-           commons-codec/commons-codec    {:mvn/version "1.13"}
+           camel-snake-kebab/camel-snake-kebab {:mvn/version "0.4.1"}
+           com.taoensso/truss                  {:mvn/version "1.6.0-RC1"}
+           com.taoensso/encore                 {:mvn/version "2.122.0"}
+           commons-codec/commons-codec         {:mvn/version "1.14"}
 
            ;; data/json
-           metosin/jsonista               {:mvn/version "0.2.5"}
+           metosin/jsonista                    {:mvn/version "0.2.6"}
 
            ;; metrics
-           metrics-clojure                {:mvn/version "2.10.0"}}
+           metrics-clojure/metrics-clojure     {:mvn/version "2.10.0"}}
 
  :aliases {:test {:extra-paths ["src/test"]
                   :main-opts   ["-m" "kaocha.runner"]
