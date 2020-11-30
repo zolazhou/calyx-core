@@ -11,31 +11,30 @@
            ch.qos.logback/logback-classic      {:mvn/version "1.2.3" :exclusions [org.slf4j/slf4j-api]}
 
            ;; spec
-           com.fulcrologic/guardrails          {:mvn/version "0.0.12"}
+           com.fulcrologic/guardrails          {:mvn/version "1.0.0"}
 
            ;; system
            com.stuartsierra/component          {:mvn/version "1.0.0"}
-           org.danielsz/system                 {:mvn/version "0.4.5"}
+           org.danielsz/system                 {:mvn/version "0.4.7-SNAPSHOT"}
            cprop/cprop                         {:mvn/version "0.1.17"}
 
            ;; util
-           camel-snake-kebab/camel-snake-kebab {:mvn/version "0.4.1"}
-           com.taoensso/truss                  {:mvn/version "1.6.0-RC1"}
-           com.taoensso/encore                 {:mvn/version "2.122.0"}
-           commons-codec/commons-codec         {:mvn/version "1.14"}
+           camel-snake-kebab/camel-snake-kebab {:mvn/version "0.4.2"}
+           com.taoensso/truss                  {:mvn/version "1.6.0"}
+           com.taoensso/encore                 {:mvn/version "3.9.2"}
+           commons-codec/commons-codec         {:mvn/version "1.15"}
 
            ;; data/json
-           metosin/jsonista                    {:mvn/version "0.2.6"}
+           metosin/jsonista                    {:mvn/version "0.2.7"}
 
            ;; metrics
            metrics-clojure/metrics-clojure     {:mvn/version "2.10.0"}}
 
  :aliases {:test {:extra-paths ["src/test"]
                   :main-opts   ["-m" "kaocha.runner"]
-                  :extra-deps  {lambdaisland/kaocha {:mvn/version "0.0-554"}}}
+                  :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.732"}}}
 
            :dev  {:extra-paths ["src/test"]
                   :jvm-opts    ["-XX:-OmitStackTraceInFastThrow"]
-                  :extra-deps  {lambdaisland/kaocha         {:mvn/version "0.0-554"}
-                                org.clojure/tools.namespace {:mvn/version "0.3.1"}}}}}
-
+                  :extra-deps  {lambdaisland/kaocha         {:mvn/version "1.0.732"}
+                                org.clojure/tools.namespace {:mvn/version "1.0.0"}}}}}
