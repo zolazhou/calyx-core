@@ -15,7 +15,6 @@
 
            ;; system
            com.stuartsierra/component          {:mvn/version "1.0.0"}
-           org.danielsz/system                 {:mvn/version "0.4.7-SNAPSHOT"}
            cprop/cprop                         {:mvn/version "0.1.17"}
 
            ;; util
